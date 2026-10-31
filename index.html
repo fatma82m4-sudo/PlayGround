@@ -1,15 +1,4 @@
-// Build a dependency-free static deployment for the number guessing game.
-// Usage: node build-static.mjs [output-directory]
-import { mkdirSync, writeFileSync, statSync } from 'node:fs'
-import { resolve } from 'node:path'
-
-const projectRoot = resolve(import.meta.dirname)
-const output = resolve(projectRoot, process.argv[2] || 'dist')
-if (output !== projectRoot && !output.startsWith(projectRoot + '/')) {
-  throw new Error('Build output must stay inside the project directory.')
-}
-
-const html = `<!doctype html>
+<!doctype html>
 <html lang="tr">
 <head>
 <meta charset="utf-8">
@@ -361,9 +350,3 @@ const html = `<!doctype html>
 </script>
 </body>
 </html>
-`
-
-mkdirSync(output, { recursive: true })
-writeFileSync(`${output}/index.html`, html)
-writeFileSync(`${output}/.build-complete`, `${new Date().toISOString()}\n`)
-console.log(`Built ${output}/index.html (${statSync(`${output}/index.html`).size} bytes)`)
