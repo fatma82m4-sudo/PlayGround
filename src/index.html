@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b1020" />
+    <meta name="description" content="1 ile 100 arasında sayı tahmin oyunu. 5 hakkın var." />
+    <title>Sayı Tahmin Oyunu</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="aurora" aria-hidden="true"></div>
+
+    <main id="oyun" class="card" data-state="playing">
+      <header class="hero">
+        <div class="badge">1 – 100</div>
+        <h1 class="title">Sayı Tahmin <span>Oyunu</span></h1>
+        <p class="subtitle">5 hakkın var. Aklımdaki sayıyı bulabilir misin?</p>
+      </header>
+
+      <section class="panel" aria-label="Oyun alanı">
+        <div class="attempts">
+          <span class="attempts-label">Kalan hak</span>
+          <div id="haklar" class="dots" role="img" aria-label="5 hak kaldı"></div>
+        </div>
+
+        <form id="form" class="guess-form" autocomplete="off" novalidate>
+          <label class="sr-only" for="tahmin">Tahminin</label>
+          <input
+            id="tahmin"
+            class="guess-input"
+            type="number"
+            inputmode="numeric"
+            min="1"
+            max="100"
+            placeholder="Tahminini yaz…"
+            aria-describedby="durum"
+          />
+          <button id="tahmin-btn" class="primary" type="submit">
+            Tahmin Et <span aria-hidden="true">→</span>
+          </button>
+        </form>
+
+        <p id="durum" class="status" role="status" aria-live="polite">
+          İlk tahminini yap, sana yön vereyim.
+        </p>
+
+        <div class="history-wrap">
+          <span class="history-label">Tahminler</span>
+          <ul id="gecmis" class="history" aria-label="Önceki tahminler"></ul>
+        </div>
+      </section>
+
+      <button id="yeniden" class="again" type="button" hidden>Yeniden Oyna ↻</button>
+
+      <footer class="foot">
+        <span class="key">Enter</span> ile de tahmin edebilirsin
+      </footer>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

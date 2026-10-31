@@ -1,0 +1,11 @@
+{
+  "name": "sayi-tahmin-oyunu",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "1 ile 100 arasında sayı tahmin oyunu",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/serve.mjs"
+  }
+}
